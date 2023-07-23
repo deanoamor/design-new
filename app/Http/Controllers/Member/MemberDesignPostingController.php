@@ -182,9 +182,9 @@ class MemberDesignPostingController extends Controller
         //find posting
         $posting = Posting::where('id', $id)->first();
 
-        $copy_posting = Transaction_history::where('copy_postings_id', $id);
+        $transactionHistory = Transaction_history::where('copy_postings_id', $id);
 
-        if ($copy_posting->exists()) {
+        if ($transactionHistory->exists()) {
             $posting->delete();
         } else {
             Storage::delete('public/file/' . $posting->file_name);

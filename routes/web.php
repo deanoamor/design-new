@@ -4,12 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AdminAuthController;
 use App\Http\Controllers\Member\MemberCartController;
-use App\Http\Controllers\Member\MemberDesignPostingController;
 use App\Http\Controllers\Member\MemberHomeController;
 use App\Http\Controllers\Member\MemberProfileController;
 use App\Http\Controllers\Member\MemberRankingController;
-use App\Http\Controllers\Member\MemberDetailDesignController;
+use App\Http\Controllers\Member\MemberCheckoutController;
 use App\Http\Controllers\Member\MemberPortfolioController;
+use App\Http\Controllers\Member\MemberDetailDesignController;
+use App\Http\Controllers\Member\MemberDesignPostingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,9 @@ Route::middleware('auth')->group(function () {
     //cart page==
     Route::get('/cart', [MemberCartController::class, 'getViewCart'])->name('member.cart');
     Route::post('/cart/delete', [MemberCartController::class, 'deleteCart'])->name('member.cart.delete');
+
+    //checkout page==
+    Route::get('/detail-design/checkout/{id}', [MemberCheckoutController::class, 'getViewCheckoutWithoutCart'])->name('member.checkout.without-cart');
 });
 
 

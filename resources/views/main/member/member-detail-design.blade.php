@@ -78,12 +78,18 @@
                                 </p>
 
                                 <div class="d-grid gap-2" style="margin-top: 75px;">
-                                    <a href="Payment.html" class="btn btn-primary active" role="button" data-bs-toggle="button" aria-pressed="true">Buy design (Rp 5000)</a>
+                                    @if ($posting->members_id != $loginId)
+                                    <a href="{{ route('member.checkout.without-cart', ['id' => $posting->id]) }}" class="btn btn-primary active" type="button">Buy design ( Rp {{$posting->price}} )</a>
+
                                     @if ($cart)
                                     <button class="btn btn-outline-primary" type="button" disabled>This design already in your cart</button>
                                     @else
                                     <a href="{{ route('member.detail-design.cart.create', ['id' => $posting->id]) }}" class="btn btn-outline-primary" type="button">Add to Cart</a>
                                     @endif
+
+                                    @endif
+
+
                                 </div>
                             </div>
                         </div>
