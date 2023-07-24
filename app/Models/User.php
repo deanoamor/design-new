@@ -43,13 +43,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function Members()
+    public function Member()
     {
-        return $this->hasMany(Member::class, 'users_id', 'id');
+        return $this->hasOne(Member::class, 'users_id', 'id');
     }
 
-    public function Admins()
+    public function Admin()
     {
-        return $this->hasMany(Admin::class, 'admins_id', 'id');
+        return $this->hasOne(Admin::class, 'admins_id', 'id');
     }
 }

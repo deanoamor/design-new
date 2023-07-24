@@ -27,7 +27,7 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{{ route('member.profile') }}">Profile</a></li>
                     <li><a class="dropdown-item" href="{{ route('member.portfolio') }}">My Portfolio</a></li>
-                    <li><a class="dropdown-item">History Transaction</a></li>
+                    <li><a href="{{ route('member.transaction-history') }}" class="dropdown-item">Transaction History</a></li>
                     <li>
                         <a href="#" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Sign
                             Out</a>

@@ -4,15 +4,17 @@ namespace App\Http\Controllers\Member;
 
 use App\Models\Cart;
 use App\Models\Member;
+use App\Models\Report;
 use App\Models\Posting;
 use App\Models\Feedback;
 use App\Models\Like_history;
 use Illuminate\Http\Request;
+use App\Models\Transaction_history;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use App\Models\Report;
 use Illuminate\Support\Facades\Auth;
-use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MemberDetailDesignController extends Controller
 {
@@ -28,9 +30,11 @@ class MemberDetailDesignController extends Controller
 
         $cart = Cart::where('members_id', $member->id)->where('postings_id', $id)->first();
 
+        $transactionHistory = Transaction_history::where('members_id', $member->id)->where('real_postings_id', $id)->first();
+
         $loginId = $member->id;
 
-        return view('main/member/member-detail-design', compact('posting', 'feedback', 'like', 'loginId', 'cart'));
+        return view('main/member/member-detail-design', compact('posting', 'feedback', 'like', 'loginId', 'cart', 'transactionHistory'));
     }
 
     public function createFeedback(Request $request)

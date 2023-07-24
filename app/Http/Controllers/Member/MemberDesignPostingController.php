@@ -182,15 +182,9 @@ class MemberDesignPostingController extends Controller
         //find posting
         $posting = Posting::where('id', $id)->first();
 
-        $transactionHistory = Transaction_history::where('copy_postings_id', $id);
-
-        if ($transactionHistory->exists()) {
-            $posting->delete();
-        } else {
-            Storage::delete('public/file/' . $posting->file_name);
-            Storage::delete('public/design/' . $posting->image_name);
-            $posting->delete();
-        }
+        Storage::delete('public/file/' . $posting->file_name);
+        Storage::delete('public/design/' . $posting->image_name);
+        $posting->delete();
 
         //send alert success
         Alert::success('Success delete design', 'Design was successfully deleted');

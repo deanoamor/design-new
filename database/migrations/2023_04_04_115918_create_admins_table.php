@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('username');
             $table->string('image_name')->nullable();
             $table->string('image_url')->nullable();
-            $table->string('no_hp')->nullable();;
+            $table->string('no_hp')->nullable();
+            $table->integer('wallet')->nullable();
             $table->timestamps();
 
             $table->foreign('users_id')->references('id')->on('users');

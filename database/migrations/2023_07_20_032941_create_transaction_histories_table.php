@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('members_id');
             $table->unsignedBigInteger('copy_postings_id');
+            $table->integer('real_postings_id');
             $table->string('status');
-            $table->integer('amount');
+            $table->integer('amount')->nullable();
             $table->integer('total');
             $table->timestamps();
 

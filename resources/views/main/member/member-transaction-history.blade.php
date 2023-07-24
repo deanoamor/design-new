@@ -14,13 +14,12 @@
         <!-- container : wajib utnuk membuat margin -->
         @include('sweetalert::alert')
         <div class="container">
-
             <!-- Breadcrumb -->
             <div class="row" style="margin-top: 45px;">
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('member.home') }}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Shopping Cart {{$member->username}}</li>
+                        <li class="breadcrumb-item active" aria-current="page">History Transaction</li>
                     </ol>
                 </nav>
             </div>
@@ -29,43 +28,36 @@
 
             <!--Content-->
             <div class="container">
+
                 <div class="row">
-                    <h5 class="text-start" style="margin-top: 32px;">Shopping Cart</h5>
+                    <h5 class="text-start" style="margin-top: 32px;">History Transaction</h5>
 
-                    @if($cart->isNotEmpty())
+                    @if($transactionHistory->isNotEmpty())
 
-                    @foreach($cart as $cartDesign)
+                    @foreach($transactionHistory as $transaction)
 
+                    <!-- card 1 -->
                     <div class="card mt-3" style="padding: 10px;">
                         <div class="row">
                             <div class="col">
-                                <a href="{{ route('member.detail-design', ['id' =>$cartDesign->Posting->id]) }}">
-                                    <img src="{{ asset($cartDesign->Posting->image_url) }}" class="card-img-top" alt="..." style="width:150px;height:150px;">
-                                </a>
+                                <img src="{{ asset($transaction->Copy_posting->image_url) }}" class="card-img-top" alt="..." style="width:150px;height:150px;">
                             </div>
                             <div class="col">
-                                <h5>{{$cartDesign->Posting->title}} ({{$cartDesign->Posting->id}})</h5>
-                                <h5 style="margin-top: 12px;">{{$cartDesign->Posting->price}}</h5>
+                                <h6>{{$transaction->Copy_posting->title}}</h6>
+                                <p style="color: gray;">{{$transaction->created_at}}</p>
+                                <p>{{$transaction->Copy_posting->price}}</p>
+                                <span class="badge text-bg-success">{{$transaction->status}}</span>
+
                             </div>
 
                             <div class="col">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Select
-                                    </label>
-                                </div>
-                                <form action="{{ route('member.cart.delete')}}" onclick="return confirm('Sure?');" method="post">
-                                    {{csrf_field()}}
-                                    <input class="form-control" type="hidden" name="id" value="{{$cartDesign->id}}">
-                                    <button type="submit" style="color: grey;" class="btn btn-link">Remove from cart</button>
-                                </form>
+                                <a href="{{ route('member.transaction-history.download', ['id' => $transaction->Copy_posting->id]) }} " type="button" class="btn btn-link" style="color: blue;">Download</a>
                             </div>
                         </div>
                     </div>
+                    <!-- end card 1 -->
 
                     @endforeach
-                    <a href="Payment.html" style="margin-top: 32px;" class="btn btn-primary active" role="button" data-bs-toggle="button" aria-pressed="true">Buy Now</a>
 
                     @else
                     <div class="col-12 mt-4">
@@ -78,7 +70,7 @@
                 </div>
             </div>
         </div>
-
+        </div>
 
     </section>
 

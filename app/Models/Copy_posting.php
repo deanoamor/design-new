@@ -25,10 +25,11 @@ class Copy_posting extends Model
         'download',
         'like',
         'feedback',
+        'date'
     ];
 
-    public function Transaction_histories()
+    public function Transaction_history()
     {
-        return $this->hasMany(Transaction_history::class, 'copy_postings_id', 'id');
+        return $this->hasOne(Transaction_history::class, 'copy_postings_id', 'id');
     }
 }

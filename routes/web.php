@@ -11,6 +11,7 @@ use App\Http\Controllers\Member\MemberCheckoutController;
 use App\Http\Controllers\Member\MemberPortfolioController;
 use App\Http\Controllers\Member\MemberDetailDesignController;
 use App\Http\Controllers\Member\MemberDesignPostingController;
+use App\Http\Controllers\Member\MemberTransactionHistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,11 @@ Route::middleware('auth')->group(function () {
 
     //checkout page==
     Route::get('/detail-design/checkout/{id}', [MemberCheckoutController::class, 'getViewCheckoutWithoutCart'])->name('member.checkout.without-cart');
+    Route::post('/detail-design/checkout/create', [MemberCheckoutController::class, 'createTransactionWithoutCart'])->name('member.checkout.without-cart.create');
+
+    //transaction history page==
+    Route::get('/transaction-history', [MemberTransactionHistoryController::class, 'getViewTransactionHistory'])->name('member.transaction-history');
+    Route::get('/transaction-history/download/{id}', [MemberTransactionHistoryController::class, 'downloadFile'])->name('member.transaction-history.download');
 });
 
 

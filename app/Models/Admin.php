@@ -15,6 +15,7 @@ class Admin extends Model
         'image_name',
         'image_url',
         'no_hp',
+        'wallet',
     ];
 
 

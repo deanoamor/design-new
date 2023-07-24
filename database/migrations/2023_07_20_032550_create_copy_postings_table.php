@@ -28,6 +28,7 @@ return new class extends Migration
             $table->integer('download');
             $table->integer('like');
             $table->integer('feedback');
+            $table->date('date');
             $table->timestamps();
         });
     }
