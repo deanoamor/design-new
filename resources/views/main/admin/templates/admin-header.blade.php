@@ -1,3 +1,8 @@
+@auth()
+@php( $admin = \App\Models\Admin::where('users_id',Auth::user()->id )->first() )
+@else
+@endauth
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
         <img src="{{ URL::asset('gambar/logo.png') }}" />
@@ -6,17 +11,9 @@
         </button>
         @auth()
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-lg-0 me-5">
-                <li class="nav-item me-3">
-                    <i class="fa-sharp fa-solid fa-trophy"></i>
-                </li>
-                <li class="nav-item">
-                    <i class="fa-sharp fa-solid fa-cart-shopping"></i>
-                </li>
-            </ul>
             <div class="dropdown nav-item align-self-center nav-link ms-4">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Halo, {{Auth::user()->name}}!
+                    Halo, {{$admin->username}}
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">My dashboard</a></li>

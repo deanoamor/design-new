@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminHomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AdminAuthController;
@@ -31,7 +32,7 @@ Route::get('/home/search', [MemberHomeController::class, 'searchDesignHome'])->n
 
 Route::get('/ranking', [MemberRankingController::class, 'getViewRanking'])->name('member.ranking');
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth', 'is-member')->group(function () {
 
     //profile page==
     Route::get('/profile', [MemberProfileController::class, 'getViewProfile'])->name('member.profile');
@@ -79,10 +80,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::middleware('auth')->group(function () {
-    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::middleware('auth', 'is-admin')->group(function () {
+    Route::get('/admin/home', [AdminHomeController::class, 'getViewAdminHome'])->name('admin.home');
 });
 
 require __DIR__ . '/auth.php';
