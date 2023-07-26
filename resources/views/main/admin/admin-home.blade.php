@@ -64,7 +64,7 @@
                             <td>{{$reportMember->created_at}}</td>
                             <td class="text-center">
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#reportModalAdmin{{$reportMember->id}}" class="btn btn-primary">See Report</button>
-                                <button type="button" class="btn btn-danger">Make Done</button>
+                                <a type="button" onclick="return confirm('sure?');" href="{{ route('admin.home.report.delete', ['id' => $reportMember->id]) }}" class="btn btn-danger">Make Done</a>
                             </td>
                         </tr>
                         @include('main.admin.modal.admin-modal-report')

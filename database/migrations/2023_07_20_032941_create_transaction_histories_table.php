@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('status');
             $table->integer('amount')->nullable();
             $table->integer('total');
+            $table->integer('admin_fee');
             $table->timestamps();
 
             $table->foreign('members_id')->references('id')->on('members');

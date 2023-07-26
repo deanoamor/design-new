@@ -66,13 +66,6 @@ class MemberCheckoutController extends Controller
                 'date' => $posting->created_at
             ]);
 
-            Transaction_history::create([
-                'members_id' => $memberMy->id,
-                'copy_postings_id' => $copyPosting->id,
-                'real_postings_id' => $posting->id,
-                'status' => 'Berhasil',
-                'total' => $posting->price
-            ]);
 
             //find fee that will get by admin
             $adminFee = (5 / 100) * $posting->price;
@@ -88,6 +81,16 @@ class MemberCheckoutController extends Controller
 
             //find total money that will get by member that have posting
             $memberPostFee = $memberPost->wallet + $totalFee;
+
+            //create transaction_history
+            Transaction_history::create([
+                'members_id' => $memberMy->id,
+                'copy_postings_id' => $copyPosting->id,
+                'real_postings_id' => $posting->id,
+                'status' => 'Berhasil',
+                'total' => $posting->price,
+                'admin_fee' => $adminFee
+            ]);
 
             //update wallet member login
             Member::where('users_id', Auth::user()->id)->update(['wallet' => $memberMyPay]);

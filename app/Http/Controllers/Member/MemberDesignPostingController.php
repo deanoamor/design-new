@@ -25,6 +25,12 @@ class MemberDesignPostingController extends Controller
 
     public function createPosting(Request $request)
     {
+        //validation
+        $request->validate([
+            'image_url' => 'required|mimes:png|max:10024',
+            'file_url' => 'required|mimes:svg|max:10024'
+        ]);
+
         //image
         $image = $request->file('image_url');
         $imageName = $image->getClientOriginalName();

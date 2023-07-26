@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminHomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AdminAuthController;
+use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Member\MemberCartController;
 use App\Http\Controllers\Member\MemberHomeController;
 use App\Http\Controllers\Member\MemberProfileController;
 use App\Http\Controllers\Member\MemberRankingController;
 use App\Http\Controllers\Member\MemberCheckoutController;
 use App\Http\Controllers\Member\MemberPortfolioController;
+use App\Http\Controllers\Admin\AdminDetailDesignController;
 use App\Http\Controllers\Member\MemberDetailDesignController;
 use App\Http\Controllers\Member\MemberDesignPostingController;
 use App\Http\Controllers\Member\MemberTransactionHistoryController;
@@ -81,7 +82,13 @@ Route::get('/dashboard', function () {
 
 
 Route::middleware('auth', 'is-admin')->group(function () {
+    //home page==
     Route::get('/admin/home', [AdminHomeController::class, 'getViewAdminHome'])->name('admin.home');
+    Route::get('/admin/home/report/delete{id}', [AdminHomeController::class, 'deleteReport'])->name('admin.home.report.delete');
+
+    //detail design page==
+    Route::get('/admin/detail-design/{id}', [AdminDetailDesignController::class, 'getViewDetailDesign'])->name('admin.detail-design');
+    Route::post('/admin/detail-design/design-posting/delete', [AdminDetailDesignController::class, 'deletePosting'])->name('admin.detail-design.design-posting.delete');
 });
 
 require __DIR__ . '/auth.php';

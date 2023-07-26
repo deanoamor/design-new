@@ -62,7 +62,7 @@
 
                         <div class="card" style="width: 18rem; border: none;">
                             <a href="{{ route('member.detail-design', ['id' => $illustration->id]) }}">
-                                <img src="{{ asset($illustration->image_url) }}" class="card-img-top" alt="..." style="border-style: solid; border-width: 2px; border-color: #E7E9EB;">
+                                <img src="{{ asset($illustration->image_url) }}" class="card-img-top" alt="..." style="width:300px;height:250px;border-style: solid; border-width: 2px; border-color: #E7E9EB;">
                             </a>
                             <div class="card-body mt-3" style="padding: 0px;">
                                 <div class="row">
@@ -121,7 +121,7 @@
                         <!-- card 1 -->
                         <div class="card" style="width: 18rem; border: none;">
                             <a href="{{ route('member.detail-design', ['id' => $webDesign->id]) }}">
-                                <img src="{{ asset($webDesign->image_url) }}" class="card-img-top" alt="..." style="border-style: solid; border-width: 2px; border-color: #E7E9EB;">
+                                <img src="{{ asset($webDesign->image_url) }}" class="card-img-top" alt="..." style="width:300px;height:250px;border-style: solid; border-width: 2px; border-color: #E7E9EB;">
                             </a>
                             <div class="card-body mt-3" style="padding: 0px;">
                                 <div class="row">

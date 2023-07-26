@@ -24,6 +24,6 @@ class Report extends Model
 
     public function Posting()
     {
-        return $this->belongsTo(Report::class, 'postings_id', 'id');
+        return $this->belongsTo(Posting::class, 'postings_id', 'id');
     }
 }

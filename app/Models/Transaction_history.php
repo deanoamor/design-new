@@ -16,6 +16,7 @@ class Transaction_history extends Model
         'status',
         'amount',
         'total',
+        'admin_fee',
     ];
 
     public function Member()
