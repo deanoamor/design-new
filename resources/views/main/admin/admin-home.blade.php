@@ -23,10 +23,12 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card mt-3" style="padding: 20px;">
-                        <p>Total Design Uploaded</p>
-                        <h4>{{$postingCount}}</h4>
-                    </div>
+                    <a href="{{ route('admin.uploaded-history') }}">
+                        <div class="card mt-3" style="padding: 20px;">
+                            <p>Total Design Uploaded</p>
+                            <h4>{{$postingCount}}</h4>
+                        </div>
+                    </a>
                 </div>
                 <div class="col">
                     <div class="card mt-3" style="padding: 20px;">

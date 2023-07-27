@@ -15,7 +15,7 @@ class MemberTransactionHistoryController extends Controller
     {
         $member = Member::where('users_id', Auth::user()->id)->first();
 
-        $transactionHistory = Transaction_history::where('members_id', $member->id)->with('Copy_posting')->get();
+        $transactionHistory = Transaction_history::where('members_id', $member->id)->with('Copy_posting')->orderBy('created_at', 'DESC')->get();
 
         return view('main/member/member-transaction-history', compact('transactionHistory'));
     }

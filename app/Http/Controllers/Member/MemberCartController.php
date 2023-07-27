@@ -15,7 +15,7 @@ class MemberCartController extends Controller
     {
         $member = Member::where('users_id', Auth::user()->id)->first();
 
-        $cart = Cart::where('members_id', $member->id)->with('Member')->with('Posting')->get();
+        $cart = Cart::where('members_id', $member->id)->with('Member')->with('Posting')->orderBy('created_at', 'DESC')->get();
 
         return view('main/member/member-cart', compact('cart', 'member'));
     }

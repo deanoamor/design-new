@@ -12,6 +12,7 @@ use App\Http\Controllers\Member\MemberCheckoutController;
 use App\Http\Controllers\Member\MemberPortfolioController;
 use App\Http\Controllers\Admin\AdminDetailDesignController;
 use App\Http\Controllers\Member\MemberDetailDesignController;
+use App\Http\Controllers\Admin\AdminUploadedHistoryController;
 use App\Http\Controllers\Member\MemberDesignPostingController;
 use App\Http\Controllers\Member\MemberTransactionHistoryController;
 
@@ -89,6 +90,10 @@ Route::middleware('auth', 'is-admin')->group(function () {
     //detail design page==
     Route::get('/admin/detail-design/{id}', [AdminDetailDesignController::class, 'getViewDetailDesign'])->name('admin.detail-design');
     Route::post('/admin/detail-design/design-posting/delete', [AdminDetailDesignController::class, 'deletePosting'])->name('admin.detail-design.design-posting.delete');
+
+    //uploaded history
+    Route::get('/admin/duploaded-history', [AdminUploadedHistoryController::class, 'getViewUploadedHistory'])->name('admin.uploaded-history');
+    Route::get('/admin/duploaded-history/filter-date', [AdminUploadedHistoryController::class, 'filterDate'])->name('admin.uploaded-history.filter-date');
 });
 
 require __DIR__ . '/auth.php';
