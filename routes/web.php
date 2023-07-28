@@ -100,6 +100,9 @@ Route::middleware('auth', 'is-admin')->group(function () {
     //transaction history page==
     Route::get('/admin/transaction-history', [AdminTransactionHistoryController::class, 'getViewTransactionHistory'])->name('admin.transaction-history');
     Route::get('/admin/transaction-history/filter-date', [AdminTransactionHistoryController::class, 'filterDate'])->name('admin.transaction-history.filter-date');
+
+    //member page==
+    Route::get('/admin/member', [AdminMemberController::class, 'getViewMember'])->name('admin.member');
 });
 
 require __DIR__ . '/auth.php';

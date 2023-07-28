@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\View\View;
 use App\Models\User;
+use App\Models\Member;
+use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use App\Providers\RouteServiceProvider;
+use App\Http\Requests\Auth\LoginRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -26,16 +28,30 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-        $request->authenticate();
-
-        $request->session()->regenerate();
-
         $user = User::where('email', $request->email)->first();
 
         if ($user->role == 'Admin') {
+            $request->authenticate();
+
+            $request->session()->regenerate();
+
             return redirect()->route('admin.home');
         } else {
-            return redirect()->route('member.home');
+
+            $member = Member::where('users_id', $user->id)->first();
+
+            if ($member->status == "Active") {
+                $request->authenticate();
+
+                $request->session()->regenerate();
+
+                return redirect()->route('member.home');
+            } else {
+                //send alert success
+                Alert::error('cannot login', 'your account is not active, please contact admin');
+
+                return view('auth.login');
+            }
         }
     }
 
