@@ -31,8 +31,6 @@ class MemberCheckoutController extends Controller
 
         $memberMy = Member::where('users_id', Auth::user()->id)->first();
 
-        $memberPost = Member::where('id', $posting->Member->id)->first();
-
         $adminOne = Admin::first();
 
         if ($posting->price <= $memberMy->wallet) {
@@ -49,6 +47,7 @@ class MemberCheckoutController extends Controller
 
             $copyPosting = Copy_posting::create([
                 'members_id' => $posting->Member->id,
+                'member_name' => $posting->Member->username,
                 'postings_id' => $posting->id,
                 'image_name' => $renameimageName,
                 'image_url' => 'storage/copy/copy_design/' . $renameimageName,
@@ -80,12 +79,13 @@ class MemberCheckoutController extends Controller
             $memberMyPay = $memberMy->wallet - $posting->price;
 
             //find total money that will get by member that have posting
-            $memberPostFee = $memberPost->wallet + $totalFee;
+            $memberPostFee = $posting->Member->wallet + $totalFee;
 
             //create transaction_history
             Transaction_history::create([
                 'members_id' => $memberMy->id,
                 'copy_postings_id' => $copyPosting->id,
+                'design_members_id' => $posting->Member->id,
                 'real_postings_id' => $posting->id,
                 'status' => 'Berhasil',
                 'total' => $posting->price,

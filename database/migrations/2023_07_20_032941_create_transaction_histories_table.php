@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('members_id');
             $table->unsignedBigInteger('copy_postings_id');
+            $table->integer('design_members_id')->nullable();
             $table->integer('real_postings_id');
             $table->string('status');
             $table->integer('amount')->nullable();

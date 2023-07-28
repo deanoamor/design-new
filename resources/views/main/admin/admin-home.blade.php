@@ -18,7 +18,7 @@
             <div class="row mt-4">
                 <div class="col">
                     <div class="card mt-3" style="padding: 20px;">
-                        <p>Total User</p>
+                        <p>Total Member</p>
                         <h4>{{$memberCount}}</h4>
                     </div>
                 </div>
@@ -31,10 +31,12 @@
                     </a>
                 </div>
                 <div class="col">
-                    <div class="card mt-3" style="padding: 20px;">
-                        <p>Total Design Purchased</p>
-                        <h4>{{$transactionCount}}</h4>
-                    </div>
+                    <a href="{{ route('admin.transaction-history') }}">
+                        <div class="card mt-3" style="padding: 20px;">
+                            <p>Total Design Purchased</p>
+                            <h4>{{$transactionCount}}</h4>
+                        </div>
+                    </a>
                 </div>
                 <div class="col">
                     <div class="card mt-3" style="padding: 20px;">

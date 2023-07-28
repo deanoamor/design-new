@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AdminAuthController;
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\AdminMemberController;
 use App\Http\Controllers\Member\MemberCartController;
 use App\Http\Controllers\Member\MemberHomeController;
 use App\Http\Controllers\Member\MemberProfileController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\Admin\AdminDetailDesignController;
 use App\Http\Controllers\Member\MemberDetailDesignController;
 use App\Http\Controllers\Admin\AdminUploadedHistoryController;
 use App\Http\Controllers\Member\MemberDesignPostingController;
+use App\Http\Controllers\Admin\AdminTransactionHistoryController;
 use App\Http\Controllers\Member\MemberTransactionHistoryController;
 
 /*
@@ -91,9 +93,13 @@ Route::middleware('auth', 'is-admin')->group(function () {
     Route::get('/admin/detail-design/{id}', [AdminDetailDesignController::class, 'getViewDetailDesign'])->name('admin.detail-design');
     Route::post('/admin/detail-design/design-posting/delete', [AdminDetailDesignController::class, 'deletePosting'])->name('admin.detail-design.design-posting.delete');
 
-    //uploaded history
-    Route::get('/admin/duploaded-history', [AdminUploadedHistoryController::class, 'getViewUploadedHistory'])->name('admin.uploaded-history');
-    Route::get('/admin/duploaded-history/filter-date', [AdminUploadedHistoryController::class, 'filterDate'])->name('admin.uploaded-history.filter-date');
+    //uploaded history page==
+    Route::get('/admin/uploaded-history', [AdminUploadedHistoryController::class, 'getViewUploadedHistory'])->name('admin.uploaded-history');
+    Route::get('/admin/uploaded-history/filter-date', [AdminUploadedHistoryController::class, 'filterDate'])->name('admin.uploaded-history.filter-date');
+
+    //transaction history page==
+    Route::get('/admin/transaction-history', [AdminTransactionHistoryController::class, 'getViewTransactionHistory'])->name('admin.transaction-history');
+    Route::get('/admin/transaction-history/filter-date', [AdminTransactionHistoryController::class, 'filterDate'])->name('admin.transaction-history.filter-date');
 });
 
 require __DIR__ . '/auth.php';

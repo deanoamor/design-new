@@ -19,7 +19,7 @@
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Uploaded History Page</li>
+                        <li class="breadcrumb-item active" aria-current="page">Transaction History Page</li>
                     </ol>
                 </nav>
             </div>
@@ -29,27 +29,27 @@
             <div class="col" style="border-color: #E0E0E0; border-style: solid; border-width: 2px; border-radius: 10px; padding: 20px; margin-top: 10px;">
 
                 <div style="display: flex; justify-content: space-between;">
-                    <h5 class="text-start">Uploaded History</h5>
+                    <h5 class="text-start">Transaction History</h5>
                     <div class="date-section align-items-center" style="display: col;">
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#dateModalUploadedHistory"><i class="fa-regular fa-calendar me-2"></i>{{$dateFilter}}
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#dateModalTransactionHistory"><i class="fa-regular fa-calendar me-2"></i>{{$dateFilter}}
                         </button>
                     </div>
                 </div>
 
-                @if($posting->isNotEmpty())
+                @if($transactionHistory->isNotEmpty())
 
-                @foreach($posting as $uploadedHistory)
+                @foreach($transactionHistory as $transaction)
                 <!-- card 1 -->
                 <div class="card mt-3" style="flex-direction: row; padding: 20px;">
-                    <a href="{{ route('admin.detail-design', ['id' => $uploadedHistory->id]) }}">
-                        <img src="{{ asset($uploadedHistory->image_url) }}" class="card-img-top" alt="..." style="width:150px;height:150px;">
-                    </a>
+                    <img src="{{ asset($transaction->Copy_posting->image_url) }}" class="card-img-top" alt="..." style="width:150px;height:150px;">
                     <div class="card-body">
                         <div class="text-section">
-                            <h5 class="card-title fw-bold">{{$uploadedHistory->title}}</h5>
-                            <p class="card-text">By {{$uploadedHistory->Member->username}}</p>
-                            <p class="card-text">Uploaded at {{$uploadedHistory->created_at}}</p>
-                            <h5 class="mt-3">RP {{$uploadedHistory->price}}</h5>
+                            <h5 class="card-title fw-bold">{{$transaction->Copy_posting->title}}</h5>
+                            <p class="card-text">Buy By {{$transaction->Member->username}}</p>
+                            <p class="card-text">Design by {{$transaction->Copy_posting->member_name}}</p>
+                            <p class="card-text">Buy at {{$transaction->created_at}}</p>
+                            <h5 class="mt-3">Total price RP {{$transaction->total}}</h5>
+                            <h5 class="mt-3">Admin fee RP {{$transaction->admin_fee}}</h5>
                         </div>
                     </div>
                 </div>
@@ -65,12 +65,12 @@
                 @endif
 
             </div>
-            {{ $posting->appends(request()->input())->links()}}
+            {{ $transactionHistory->appends(request()->input())->links()}}
 
         </div>
 
     </section>
-    @include('main.admin.modal.admin-modal-uploaded-history')
+    @include('main.admin.modal.admin-modal-transaction-history')
 
     <footer class="footer">
         @include('main.admin.templates.admin-footer')

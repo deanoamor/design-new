@@ -10,7 +10,7 @@ class AdminUploadedHistoryController extends Controller
 {
     public function getViewUploadedHistory()
     {
-        $posting = Posting::with('Member')->orderBy('created_at', 'DESC')->get();
+        $posting = Posting::with('Member')->orderBy('created_at', 'DESC')->paginate(10);
 
         $dateFilter = 'FIlter Date';
 
@@ -22,7 +22,7 @@ class AdminUploadedHistoryController extends Controller
         $originalDate = $request->created_at;
         $newDate = date("Y-m-d", strtotime($originalDate));
 
-        $posting = Posting::where('created_at', 'like', "%" . $newDate . "%")->with('Member')->orderBy('created_at', 'DESC')->get();
+        $posting = Posting::where('created_at', 'like', "%" . $newDate . "%")->with('Member')->orderBy('created_at', 'DESC')->paginate(10);
 
         $dateFilter = $newDate;
 

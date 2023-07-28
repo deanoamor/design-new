@@ -12,6 +12,7 @@ class Transaction_history extends Model
     protected $fillable = [
         'members_id',
         'copy_postings_id',
+        'design_members_id',
         'real_postings_id',
         'status',
         'amount',

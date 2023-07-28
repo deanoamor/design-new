@@ -11,6 +11,7 @@ class Copy_posting extends Model
 
     protected $fillable = [
         'members_id',
+        'member_name',
         'postings_id',
         'image_name',
         'file_name',

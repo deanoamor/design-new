@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('copy_postings', function (Blueprint $table) {
             $table->id();
             $table->integer('members_id');
+            $table->string('member_name');
             $table->integer('postings_id');
             $table->string('image_name');
             $table->string('file_name');
