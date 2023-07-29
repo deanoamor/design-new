@@ -103,6 +103,8 @@ Route::middleware('auth', 'is-admin')->group(function () {
 
     //member page==
     Route::get('/admin/member', [AdminMemberController::class, 'getViewMember'])->name('admin.member');
+    Route::get('/admin/member/search', [AdminMemberController::class, 'searchMember'])->name('admin.member.search');
+    Route::get('/admin/member/set-status/{id}', [AdminMemberController::class, 'setStatus'])->name('admin.member.set-status');
 });
 
 require __DIR__ . '/auth.php';

@@ -27,10 +27,10 @@
 
             <!-- search -->
             <div class="row mt-4">
-                <div class="input-group mb-3" style="width: 600px">
-                    <form class="d-flex mt-4" action="">
-                        <input type="text" class="form-control" placeholder="Search User" aria-label="Recipient's username" aria-describedby="button-addon2" />
-                        <button class="btn btn-primary ms-3" style="background-color: #4F7AF6;" type="button" id="button-addon2">
+                <div class="input-group mb-3">
+                    <form class="d-flex mt-4" action="{{ route('admin.member.search')}}" method="GET">
+                        <input type="text" class="form-control" placeholder="Search User" name="search" />
+                        <button class="btn btn-primary ms-3" style="background-color: #4F7AF6;" type="submit">
                             Search
                         </button>
                     </form>
@@ -65,7 +65,11 @@
                             @endif
                             <td class="text-center">
                                 <button type="button" class="btn btn-primary">See Detail</button>
-                                <button type="button" class="btn btn-danger">Disable</button>
+                                @if ($memberList->status == 'Active')
+                                <a type="button" class="btn btn-danger" href="{{ route('admin.member.set-status', ['id' => $memberList->id]) }}" onclick="return confirm('sure?');">Disable</a>
+                                @else
+                                <a type="button" class="btn btn-success" href="{{ route('admin.member.set-status', ['id' => $memberList->id]) }}" onclick="return confirm('sure?');">Enable</a>
+                                @endif
                             </td>
                         </tr>
                         <!-- end card 1 -->
