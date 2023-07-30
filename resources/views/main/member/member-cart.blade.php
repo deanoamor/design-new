@@ -45,7 +45,7 @@
                             </div>
                             <div class="col">
                                 <h5>{{$cartDesign->Posting->title}} ({{$cartDesign->Posting->id}})</h5>
-                                <h5 style="margin-top: 12px;">{{$cartDesign->Posting->price}}</h5>
+                                <h5 style="margin-top: 12px;">Rp {{$cartDesign->Posting->formattedPrice}}</h5>
                             </div>
 
                             <div class="col">

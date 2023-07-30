@@ -26,6 +26,13 @@ class Posting extends Model
         'feedback',
     ];
 
+    //format
+    public function getFormattedPriceAttribute()
+    {
+        return number_format($this->attributes['price']);
+    }
+
+    //relation
     public function Member()
     {
         return $this->belongsTo(Member::class, 'members_id', 'id');

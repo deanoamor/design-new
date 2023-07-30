@@ -48,8 +48,8 @@
                             <p class="card-text">Buy By {{$transaction->Member->username}}</p>
                             <p class="card-text">Design by {{$transaction->Copy_posting->member_name}}</p>
                             <p class="card-text">Buy at {{$transaction->created_at}}</p>
-                            <h5 class="mt-3">Total price RP {{$transaction->total}}</h5>
-                            <h5 class="mt-3">Admin fee RP {{$transaction->admin_fee}}</h5>
+                            <h5 class="mt-3">Total price Rp {{$transaction->formattedTotal}}</h5>
+                            <h5 class="mt-3">Admin fee Rp {{$transaction->formattedAdminFee}}</h5>
                         </div>
                     </div>
                 </div>

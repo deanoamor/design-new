@@ -45,7 +45,7 @@
                             <div class="col">
                                 <h6>{{$transaction->Copy_posting->title}}</h6>
                                 <p style="color: gray;">{{$transaction->created_at}}</p>
-                                <p>{{$transaction->Copy_posting->price}}</p>
+                                <p>Rp {{$transaction->formattedTotal}}</p>
                                 <span class="badge text-bg-success">{{$transaction->status}}</span>
 
                             </div>

@@ -29,6 +29,13 @@ class Copy_posting extends Model
         'date'
     ];
 
+    //format
+    public function getFormattedPriceAttribute()
+    {
+        return number_format($this->attributes['price']);
+    }
+
+    //relation
     public function Transaction_history()
     {
         return $this->hasOne(Transaction_history::class, 'copy_postings_id', 'id');

@@ -49,7 +49,7 @@
                             <h5 class="card-title fw-bold">{{$uploadedHistory->title}}</h5>
                             <p class="card-text">By {{$uploadedHistory->Member->username}}</p>
                             <p class="card-text">Uploaded at {{$uploadedHistory->created_at}}</p>
-                            <h5 class="mt-3">RP {{$uploadedHistory->price}}</h5>
+                            <h5 class="mt-3">Rp {{$uploadedHistory->formattedPrice}}</h5>
                         </div>
                     </div>
                 </div>

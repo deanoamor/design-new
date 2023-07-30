@@ -81,7 +81,7 @@
                                     @if(!$transactionHistory)
 
                                     @if ($posting->members_id != $loginId)
-                                    <a href="{{ route('member.checkout.without-cart', ['id' => $posting->id]) }}" class="btn btn-primary active" type="button">Buy design ( Rp {{$posting->price}} )</a>
+                                    <a href="{{ route('member.checkout.without-cart', ['id' => $posting->id]) }}" class="btn btn-primary active" type="button">Buy design ( Rp {{$posting->formattedPrice}} )</a>
 
                                     @if ($cart)
                                     <button class="btn btn-outline-primary" type="button" disabled>This design already in your cart</button>

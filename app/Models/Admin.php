@@ -18,7 +18,13 @@ class Admin extends Model
         'wallet',
     ];
 
+    //format
+    public function getFormattedWalletAttribute()
+    {
+        return number_format($this->attributes['wallet']);
+    }
 
+    //relation
     public function User()
     {
         return $this->belongsTo(User::class, 'users_id', 'id');

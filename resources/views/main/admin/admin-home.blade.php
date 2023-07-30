@@ -43,7 +43,7 @@
                 <div class="col">
                     <div class="card mt-3" style="padding: 20px;">
                         <p>Total Income</p>
-                        <h4>RP {{$admin->wallet}}</h4>
+                        <h4>Rp {{$admin->formattedWallet}}</h4>
                     </div>
                 </div>
             </div>

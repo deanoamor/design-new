@@ -43,6 +43,7 @@
 
                                 <h6 style="margin-top: 20px; text-align:left">{{ $posting->created_at}}</h6>
                                 <p style="margin-top: 20px; text-align:left">{{ $posting->description}}</p>
+                                <p style="margin-top: 20px; text-align:left"> <strong>Price Rp {{ $posting->formattedPrice}}</strong></p>
 
                                 <p class="text-start" style="margin-top: 40px;">
 

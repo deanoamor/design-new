@@ -55,7 +55,7 @@
                             <div class="col">
                                 <div class="card mt-3" style="padding: 20px;">
                                     <p>Total User Money</p>
-                                    <h4>RP {{$member->wallet}}</h4>
+                                    <h4>Rp {{$member->formattedWallet}}</h4>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +83,11 @@
                                             </div>
                                             <div class="status mt-5">
                                                 <p class="username-font" style="font-size: 16px;">Status</p>
-                                                <span class="badge text-bg-success">{{$member->status}}</span>
+                                                @if ($member->status == 'Active')
+                                                <td><span class="badge text-bg-success">{{$member->status}}</span></td>
+                                                @else
+                                                <td><span class="badge text-bg-danger">{{$member->status}}</span></td>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

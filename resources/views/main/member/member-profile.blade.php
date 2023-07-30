@@ -63,7 +63,7 @@
                 <!-- Money -->
                 <div class="col" style="border-color: gainsboro; border-style: solid; border-width: 2px; border-radius: 10px; padding: 20px; margin: 10px;">
                     <h5 class="text-start">Your Money</h5>
-                    <h4 class="text-start" style="margin-top: 22px;">Rp{{ $member->wallet}}</h4>
+                    <h4 class="text-start" style="margin-top: 22px;">Rp{{ $member->formattedWallet}}</h4>
 
                     <form action="{{ route('member.profile.wallet.update')}}" enctype="multipart/form-data" method="post">
                         {{csrf_field()}}

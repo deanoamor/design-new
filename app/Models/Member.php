@@ -19,6 +19,13 @@ class Member extends Model
         'status',
     ];
 
+    //format
+    public function getFormattedWalletAttribute()
+    {
+        return number_format($this->attributes['wallet']);
+    }
+
+    //relation
     public function Postings()
     {
         return $this->hasMany(Posting::class, 'postings_id', 'id');

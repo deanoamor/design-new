@@ -20,6 +20,18 @@ class Transaction_history extends Model
         'admin_fee',
     ];
 
+    //format
+    public function getFormattedTotalAttribute()
+    {
+        return number_format($this->attributes['total']);
+    }
+
+    public function getFormattedAdminFeeAttribute()
+    {
+        return number_format($this->attributes['admin_fee']);
+    }
+
+    //relation
     public function Member()
     {
         return $this->belongsTo(Member::class, 'members_id', 'id');
