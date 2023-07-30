@@ -12,6 +12,7 @@ use App\Http\Controllers\Member\MemberRankingController;
 use App\Http\Controllers\Member\MemberCheckoutController;
 use App\Http\Controllers\Member\MemberPortfolioController;
 use App\Http\Controllers\Admin\AdminDetailDesignController;
+use App\Http\Controllers\Admin\AdminMemberProfileController;
 use App\Http\Controllers\Member\MemberDetailDesignController;
 use App\Http\Controllers\Admin\AdminUploadedHistoryController;
 use App\Http\Controllers\Member\MemberDesignPostingController;
@@ -105,6 +106,9 @@ Route::middleware('auth', 'is-admin')->group(function () {
     Route::get('/admin/member', [AdminMemberController::class, 'getViewMember'])->name('admin.member');
     Route::get('/admin/member/search', [AdminMemberController::class, 'searchMember'])->name('admin.member.search');
     Route::get('/admin/member/set-status/{id}', [AdminMemberController::class, 'setStatus'])->name('admin.member.set-status');
+
+    //member profile page==
+    Route::get('/admin/member/profile/{id}', [AdminMemberProfileController::class, 'getViewMemberProfile'])->name('admin.member.profile');
 });
 
 require __DIR__ . '/auth.php';
