@@ -14,6 +14,7 @@ use App\Http\Controllers\Member\MemberPortfolioController;
 use App\Http\Controllers\Admin\AdminDetailDesignController;
 use App\Http\Controllers\Admin\AdminMemberProfileController;
 use App\Http\Controllers\Member\MemberDetailDesignController;
+use App\Http\Controllers\Admin\AdminMemberPortfolioController;
 use App\Http\Controllers\Admin\AdminUploadedHistoryController;
 use App\Http\Controllers\Member\MemberDesignPostingController;
 use App\Http\Controllers\Admin\AdminTransactionHistoryController;
@@ -109,6 +110,10 @@ Route::middleware('auth', 'is-admin')->group(function () {
 
     //member profile page==
     Route::get('/admin/member/profile/{id}', [AdminMemberProfileController::class, 'getViewMemberProfile'])->name('admin.member.profile');
+
+    //member portfolio page==
+    Route::get('/admin/member/portfolio/{id}', [AdminMemberPortfolioController::class, 'getViewMemberPortfolio'])->name('admin.member.portfolio');
+    Route::get('/admin/member/portfolio/filter-date/{id}', [AdminMemberPortfolioController::class, 'filterDate'])->name('admin.member.portfolio.filter-date');
 });
 
 require __DIR__ . '/auth.php';
