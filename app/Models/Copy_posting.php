@@ -26,6 +26,7 @@ class Copy_posting extends Model
         'download',
         'like',
         'feedback',
+        'income',
         'date'
     ];
 
@@ -33,6 +34,11 @@ class Copy_posting extends Model
     public function getFormattedPriceAttribute()
     {
         return number_format($this->attributes['price']);
+    }
+
+    public function getFormattedIncomeAttribute()
+    {
+        return number_format($this->attributes['income']);
     }
 
     //relation

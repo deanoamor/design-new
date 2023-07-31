@@ -47,7 +47,7 @@
 
                                 <p class="text-start" style="margin-top: 40px;">
 
-                                    {{$posting->like}}<span class="ms-1"></span>
+                                    <i class="fa-solid fa-heart"></i> {{$posting->like}}<span class="ms-1"></span>
                                     <i class="fa-solid fa-message"></i>{{$posting->feedback}} <span class="ms-1"></span>
                                     <i class="fa-solid fa-download"></i>{{$posting->download}} <span class="ms-1"></span>
                                     <i class="fa-solid fa-share"></i>123 <span class="ms-1"></span>

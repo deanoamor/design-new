@@ -24,12 +24,18 @@ class Posting extends Model
         'download',
         'like',
         'feedback',
+        'income'
     ];
 
     //format
     public function getFormattedPriceAttribute()
     {
         return number_format($this->attributes['price']);
+    }
+
+    public function getFormattedIncomeAttribute()
+    {
+        return number_format($this->attributes['income']);
     }
 
     //relation

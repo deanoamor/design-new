@@ -27,6 +27,7 @@ return new class extends Migration
             $table->integer('download');
             $table->integer('like');
             $table->integer('feedback');
+            $table->integer('income');
             $table->timestamps();
 
             $table->foreign('members_id')->references('id')->on('members');

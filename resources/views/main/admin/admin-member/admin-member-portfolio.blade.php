@@ -19,7 +19,7 @@
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.member') }}">User</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.member') }}">Member</a></li>
                         <li class=" breadcrumb-item active" aria-current="page">{{$member->username}}</li>
                     </ol>
                 </nav>

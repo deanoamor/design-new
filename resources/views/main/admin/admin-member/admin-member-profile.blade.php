@@ -30,8 +30,8 @@
                 <div class="col-3">
                     <div class="card mt-3">
                         <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                            <a href="adminUserDetailPage.html" class="btn btn-light" role="button">User Profile</a>
-                            <a href="adminUserPortfolioPage.html" class="btn btn-light" role="button">Portfolio</a>
+                            <button href="adminUserDetailPage.html" class="btn btn-primary" disabled>User Profile</button>
+                            <a href="{{ route('admin.member.portfolio', ['id' => $member->id]) }}" class="btn btn-light" role="button">Portfolio</a>
                             <a href="adminUserHistoryTransactionPage.html" class="btn btn-light" role="button">History
                                 Transaction</a>
                         </div>

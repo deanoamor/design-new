@@ -62,6 +62,7 @@ class MemberCheckoutController extends Controller
                 'download' => $posting->download,
                 'like' => $posting->like,
                 'feedback' => $posting->feedback,
+                'income' => $posting->income,
                 'date' => $posting->created_at
             ]);
 
@@ -80,6 +81,9 @@ class MemberCheckoutController extends Controller
 
             //find total money that will get by member that have posting
             $memberPostFee = $posting->Member->wallet + $totalFee;
+
+            //calculate income for posting
+            $totalIncomePosting = $posting->income + $totalFee;
 
             //create transaction_history
             Transaction_history::create([
@@ -101,12 +105,6 @@ class MemberCheckoutController extends Controller
             //update to all admin wallet
             Admin::query()->update(['wallet' => $adminTotal]);
 
-            //count transaction hisotry that have real_postings_id same with posting->id
-            $transactionHistoryCount = Transaction_history::where('real_postings_id', $postingId)->count();
-
-            //update download column in posting
-            Posting::where('id', $postingId)->update(['download' => $transactionHistoryCount]);
-
             //find cart that already buy
             $cart = Cart::where('members_id', $memberMy->id)->where('postings_id', $posting->id)->first();
 
@@ -114,6 +112,15 @@ class MemberCheckoutController extends Controller
             if ($cart) {
                 Cart::where('id', $cart->id)->delete();
             }
+
+            //count transaction hisotry that have real_postings_id same with posting->id
+            $transactionHistoryCount = Transaction_history::where('real_postings_id', $postingId)->count();
+
+            //update download and income column in posting
+            Posting::where('id', $postingId)->update([
+                'income' => $totalIncomePosting,
+                'download' => $transactionHistoryCount
+            ]);
 
             //send alert success
             Alert::success('Success buy design', 'Design was successfully paid');
