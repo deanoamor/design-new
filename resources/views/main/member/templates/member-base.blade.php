@@ -7,3 +7,12 @@
 <link rel="stylesheet" href="{{ URL::asset('css/custom/landing.css') }}" />
 <script src="https://kit.fontawesome.com/e30cdb2ad6.js" crossorigin="anonymous"></script>
 
+<style>
+    body {
+        min-height: 100vh;
+        margin: 0;
+
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+    }
+</style>
