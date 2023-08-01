@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminMemberController;
 use App\Http\Controllers\Member\MemberCartController;
 use App\Http\Controllers\Member\MemberHomeController;
+use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Member\MemberProfileController;
 use App\Http\Controllers\Member\MemberRankingController;
 use App\Http\Controllers\Member\MemberCheckoutController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\Admin\AdminUploadedHistoryController;
 use App\Http\Controllers\Member\MemberDesignPostingController;
 use App\Http\Controllers\Admin\AdminTransactionHistoryController;
 use App\Http\Controllers\Member\MemberTransactionHistoryController;
+use App\Http\Controllers\Admin\AdminMemberTransactionHistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -114,6 +116,14 @@ Route::middleware('auth', 'is-admin')->group(function () {
     //member portfolio page==
     Route::get('/admin/member/portfolio/{id}', [AdminMemberPortfolioController::class, 'getViewMemberPortfolio'])->name('admin.member.portfolio');
     Route::get('/admin/member/portfolio/filter-date/{id}', [AdminMemberPortfolioController::class, 'filterDate'])->name('admin.member.portfolio.filter-date');
+
+    //member transaction history page==
+    Route::get('/admin/member/transaction-history/{id}', [AdminMemberTransactionHistoryController::class, 'getViewMembertransactionHistory'])->name('admin.member.transaction-history');
+    Route::get('/admin/member/transaction-history/filter-date/{id}', [AdminMemberTransactionHistoryController::class, 'filterDate'])->name('admin.member.transaction-history.filter-date');
+
+    //profile page==
+    Route::get('/admin/profile', [AdminProfileController::class, 'getViewProfile'])->name('admin.profile');
+    Route::post('/admin/profile/update', [AdminProfileController::class, 'updateProfile'])->name('admin.profile.update');
 });
 
 require __DIR__ . '/auth.php';
