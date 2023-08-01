@@ -60,7 +60,7 @@
                                     <div class="card-body">
                                         <div class="text-section">
                                             <h5 class="card-title fw-bold">{{$transactionHistoryList->Copy_posting->title}}</h5>
-                                            <p class="card-text">{{$transactionHistoryList->Copy_posting->member_name}}</p>
+                                            <p class="card-text">Design by {{$transactionHistoryList->Copy_posting->member_name}}</p>
                                             <p class="card-text">Buy at {{$transactionHistoryList->created_at}}</p>
                                             <h4 class="mt-5">Rp {{$transactionHistoryList->formattedTotal}}</h4>
                                         </div>

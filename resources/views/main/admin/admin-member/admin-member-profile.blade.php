@@ -32,7 +32,7 @@
                         <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
                             <button href="adminUserDetailPage.html" class="btn btn-primary" disabled>User Profile</button>
                             <a href="{{ route('admin.member.portfolio', ['id' => $member->id]) }}" class="btn btn-light" role="button">Portfolio</a>
-                            <a href="adminUserHistoryTransactionPage.html" class="btn btn-light" role="button">History
+                            <a href="{{ route('admin.member.transaction-history', ['id' => $member->id]) }}" class="btn btn-light" role="button">History
                                 Transaction</a>
                         </div>
                     </div>

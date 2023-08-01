@@ -54,7 +54,6 @@ class MemberProfileController extends Controller
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'username' => $request->username,
         ]);
 
         //send alert success

@@ -32,8 +32,7 @@
                         <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
                             <a href="{{ route('admin.member.profile', ['id' => $member->id]) }}" class="btn btn-light" role="button">User Profile</a>
                             <button class="btn btn-primary" disabled>Portfolio</button>
-                            <a href="adminUserHistoryTransactionPage.html" class="btn btn-light" role="button">History
-                                Transaction</a>
+                            <a href="{{ route('admin.member.transaction-history', ['id' => $member->id]) }}" class="btn btn-light" role="button">History Transaction</a>
                         </div>
                     </div>
                 </div>
@@ -58,7 +57,7 @@
                                 <!-- card 1 -->
                                 <div class="card mt-3" style="flex-direction: row; padding: 20px;">
                                     <a href="{{ route('admin.detail-design', ['id' => $postingList->id]) }}">
-                                        <img src="{{ asset($postingList->image_url) }}" class="card-img-top align-self-start" alt="..." style="width: 10rem;">
+                                        <img src="{{ asset($postingList->image_url) }}" class="card-img-top align-self-start" alt="..." style="width:150px;height:150px;">
                                     </a>
                                     <div class="card-body">
                                         <div class="text-section">

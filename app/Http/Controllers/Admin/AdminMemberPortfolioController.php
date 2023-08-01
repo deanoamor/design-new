@@ -13,7 +13,7 @@ class AdminMemberPortfolioController extends Controller
     {
         $member = Member::where('id', $id)->with('User')->first();
 
-        $posting = Posting::where('members_id', $member->id)->with('Member')->paginate(10);
+        $posting = Posting::where('members_id', $member->id)->with('Member')->orderBy('created_at', 'DESC')->paginate(10);
 
         $dateFilter = 'FIlter Date';
 

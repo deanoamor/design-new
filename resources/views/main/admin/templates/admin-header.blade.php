@@ -16,9 +16,7 @@
                     Halo, {{$admin->username}}
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">My dashboard</a></li>
-                    <li><a class="dropdown-item" href="#">My dashboard</a></li>
-                    <li><a class="dropdown-item" href="#">My dashboard</a></li>
+                    <li><a class="dropdown-item" href="{{ route('admin.profile') }}">Profile</a></li>
                     <li>
                         <a href="#" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Sign
                             Out</a>
