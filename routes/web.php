@@ -74,6 +74,8 @@ Route::middleware('auth', 'is-member')->group(function () {
     //checkout page==
     Route::get('/detail-design/checkout/{id}', [MemberCheckoutController::class, 'getViewCheckoutWithoutCart'])->name('member.checkout.without-cart');
     Route::post('/detail-design/checkout/create', [MemberCheckoutController::class, 'createTransactionWithoutCart'])->name('member.checkout.without-cart.create');
+    Route::get('/cart/checkout', [MemberCheckoutController::class, 'getViewCheckoutWithCart'])->name('member.checkout.with-cart');
+    Route::post('/cart/checkout/set-select', [MemberCheckoutController::class, 'setSelect'])->name('member.checkout.with-cart.set-select');
 
     //transaction history page==
     Route::get('/transaction-history', [MemberTransactionHistoryController::class, 'getViewTransactionHistory'])->name('member.transaction-history');

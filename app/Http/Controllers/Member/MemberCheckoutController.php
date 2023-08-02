@@ -131,8 +131,38 @@ class MemberCheckoutController extends Controller
             //send alert success
             Alert::error('not enough money', 'please top up your money first');
 
-            //return back to detail design page
+            //return back to checkout page
             return redirect()->route('member.checkout.without-cart', $posting->id);
         }
+    }
+
+    public function getViewCheckoutWithCart()
+    {
+        $member = Member::where('users_id', Auth::user()->id)->first();
+
+        $cart = Cart::where('members_id', $member->id)->where('is_select', 1)->with('Posting')->orderBy('created_at', 'DESC')->get();
+
+        $cartCount = Cart::where('members_id', $member->id)->where('is_select', 1)->with('Posting')->count();
+
+        $cartSum = 0;
+
+        for ($i = 0; $i < $cartCount; $i++) {
+            $cartSum = $cartSum + $cart[$i]->Posting->price;
+        }
+
+
+        return view('main/member/checkout/member-checkout-with-cart', compact('cart', 'cartSum', 'member'));
+    }
+
+    public function setSelect(Request $request)
+    {
+        $cartId = $request->id;
+
+        Cart::where('id', $cartId)->update([
+            'is_select' => 0,
+        ]);
+
+        //return back to checkout page
+        return redirect()->route('member.checkout.with-cart');
     }
 }
