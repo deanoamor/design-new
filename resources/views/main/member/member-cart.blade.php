@@ -66,7 +66,7 @@
                     </div>
 
                     @endforeach
-                    <a href="Payment.html" style="margin-top: 32px;" class="btn btn-primary active" role="button" data-bs-toggle="button" aria-pressed="true">Buy Now</a>
+                    <a href="{{ route('member.checkout.with-cart')}}" style="margin-top: 32px;" class="btn btn-primary" role="button" type="button">Buy Now</a>
 
                     @else
                     <div class="col-12 mt-4">

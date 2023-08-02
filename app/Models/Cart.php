@@ -12,9 +12,9 @@ class Cart extends Model
     protected $fillable = [
         'members_id',
         'postings_id',
-        'total',
-        'is_select',
         'status',
+        'is_select',
+        'total',
     ];
 
     public function Member()
