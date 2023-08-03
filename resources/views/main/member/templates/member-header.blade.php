@@ -10,6 +10,9 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         @auth()
+        @if(Auth::user()->role == "Admin")
+        <p>You re Admin</p>
+        @else
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <a href="{{ route('member.design-posting') }}" class="btn btn-success me-4">Upload Design</a>
             <ul class="navbar-nav mb-2 mb-lg-0 me-2">
@@ -38,6 +41,7 @@
                 </ul>
             </div>
         </div>
+        @endif
         @else
         <div>
             <a href="{{route('login')}}" class="btn btn-primary">Sign In</a>
