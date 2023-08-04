@@ -58,9 +58,9 @@
                             <dl class="row" style="margin-top: 10px;">
                                 <dd class="col-sm-3">Total Payment</dd>
                                 <dt class="col-sm-9">Rp {{number_format($cartSum)}}</dt>
-                                <form action="{{ route('member.checkout.without-cart.create')}}" method="post">
+                                <form action="{{ route('member.checkout.with-cart.create')}}" method="post">
                                     {{csrf_field()}}
-                                    <input class="form-control" type="hidden" name="id" value="">
+                                    <input class="form-control" type="hidden" name="totalPayment" value="{{$cartSum}}">
                                     <div class="d-grid gap-2" style="margin-top: 32px;">
                                         <button type="submit" class="btn btn-primary active">Continue to Pay</button>
                                     </div>
