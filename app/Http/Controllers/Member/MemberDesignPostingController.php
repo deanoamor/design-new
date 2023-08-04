@@ -176,6 +176,12 @@ class MemberDesignPostingController extends Controller
         //find report that have posting id and delete all
         $reports = Report::where('postings_id', $id)->get();
         if ($reports) {
+            foreach ($reports as $report) {
+                if ($report->image_prove_name) {
+                    Storage::delete('public/report/' . $report->image_prove_name);
+                }
+            }
+
             $reports->each->delete();
         }
 
