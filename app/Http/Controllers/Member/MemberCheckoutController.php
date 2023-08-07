@@ -154,7 +154,7 @@ class MemberCheckoutController extends Controller
         return view('main/member/checkout/member-checkout-with-cart', compact('cart', 'cartSum', 'member'));
     }
 
-    public function setSelect(Request $request)
+    public function removeCheckout(Request $request)
     {
         $cartId = $request->id;
 

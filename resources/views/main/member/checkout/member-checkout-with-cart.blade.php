@@ -88,7 +88,7 @@
                                     <p style="color: gray;">{{$cartList->Posting->type}}</p>
                                     <p>RP {{$cartList->Posting->formattedPrice}}</p>
                                 </div>
-                                <form action="{{ route('member.checkout.with-cart.set-select')}}" onclick="return confirm('Sure?');" method="post">
+                                <form action="{{ route('member.checkout.with-cart.remove-checkout')}}" onclick="return confirm('Sure?');" method="post">
                                     {{csrf_field()}}
                                     <input class="form-control" type="hidden" name="id" value="{{$cartList->id}}">
                                     <button type="submit" style="color: grey;" class="btn btn-link">Remove from checkout</button>
