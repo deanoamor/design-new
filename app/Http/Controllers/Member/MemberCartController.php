@@ -55,4 +55,24 @@ class MemberCartController extends Controller
         //return back to cart
         return redirect()->route('member.cart');
     }
+
+    public function setSelect(Request $request)
+    {
+        $cartId = $request->id;
+
+        $cart =  Cart::where('id', $cartId)->first();
+
+        if ($cart->is_select == 1) {
+            Cart::where('id', $cartId)->update([
+                'is_select' => 0,
+            ]);
+        } else {
+            Cart::where('id', $cartId)->update([
+                'is_select' => 1,
+            ]);
+        }
+
+        //return back to checkout page
+        return redirect()->route('member.cart');
+    }
 }

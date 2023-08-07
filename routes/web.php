@@ -70,6 +70,7 @@ Route::middleware('auth', 'is-member')->group(function () {
     //cart page==
     Route::get('/cart', [MemberCartController::class, 'getViewCart'])->name('member.cart');
     Route::post('/cart/delete', [MemberCartController::class, 'deleteCart'])->name('member.cart.delete');
+    Route::post('/cart/set-select', [MemberCartController::class, 'setSelect'])->name('member.cart.set-select');
 
     //checkout page==
     Route::get('/detail-design/checkout/{id}', [MemberCheckoutController::class, 'getViewCheckoutWithoutCart'])->name('member.checkout.without-cart');

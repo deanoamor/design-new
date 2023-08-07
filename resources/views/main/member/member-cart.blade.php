@@ -50,12 +50,17 @@
                             </div>
 
                             <div class="col">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Select
-                                    </label>
-                                </div>
+                                <form action="{{ route('member.cart.set-select')}}" method="post">
+                                    {{csrf_field()}}
+                                    <input class="form-check-input" type="hidden" type="checkbox" name="id" value="{{$cartDesign->id}}">
+                                    @if ($cartDesign->is_select == 1)
+                                    <button type="submit" class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>
+                                    <label for="">Unselect</label>
+                                    @else
+                                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-check"></i></button>
+                                    <label for="">Select</label>
+                                    @endif
+                                </form>
                                 <form action="{{ route('member.cart.delete')}}" onclick="return confirm('Sure?');" method="post">
                                     {{csrf_field()}}
                                     <input class="form-control" type="hidden" name="id" value="{{$cartDesign->id}}">
