@@ -100,6 +100,12 @@ class MemberDesignPostingController extends Controller
             $imageName = $posting->image_name;
             $imageUrl = $posting->image_url;
         } else {
+
+            //validation
+            $request->validate([
+                'image_url' => 'required|mimes:png|max:10024',
+            ]);
+
             Storage::delete('public/design/' . $posting->image_name);
 
             $image = $request->file('image_url');
@@ -118,6 +124,12 @@ class MemberDesignPostingController extends Controller
             $fileName = $posting->file_name;
             $fileUrl = $posting->file_url;
         } else {
+
+            //validation
+            $request->validate([
+                'file_url' => 'required|mimes:svg|max:10024'
+            ]);
+
             Storage::delete('public/file/' . $posting->file_name);
 
             $file = $request->file('file_url');

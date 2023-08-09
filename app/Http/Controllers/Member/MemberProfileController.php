@@ -30,9 +30,13 @@ class MemberProfileController extends Controller
             $imageName = $member->image_name;
             $imageUrl = $member->image_url;
         } else {
-            if ($member->image_name) {
-                Storage::delete('public/profile/' . $member->image_name);
-            }
+
+            //validation
+            $request->validate([
+                'image_url' => 'required|mimes:png|max:10024',
+            ]);
+
+            Storage::delete('public/profile/' . $member->image_name);
 
             $image = $request->file('image_url');
             $imageName = $image->getClientOriginalName();

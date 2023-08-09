@@ -30,9 +30,13 @@ class AdminProfileController extends Controller
             $imageName = $admin->image_name;
             $imageUrl = $admin->image_url;
         } else {
-            if ($admin->image_name) {
-                Storage::delete('public/admin/' . $admin->image_name);
-            }
+
+            //validation
+            $request->validate([
+                'image_url' => 'required|mimes:png|max:10024',
+            ]);
+
+            Storage::delete('public/admin/' . $admin->image_name);
 
             $image = $request->file('image_url');
             $imageName = $image->getClientOriginalName();
