@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('member_name');
             $table->integer('postings_id');
             $table->string('image_name');
-            $table->string('file_name');
             $table->string('image_url');
+            $table->string('file_name');
             $table->string('file_url');
             $table->string('title');
             $table->text('description');
@@ -29,7 +29,7 @@ return new class extends Migration
             $table->integer('download');
             $table->integer('like');
             $table->integer('feedback');
-            $table->integer('income');
+            $table->integer('income')->nullable();
             $table->date('date');
             $table->timestamps();
         });

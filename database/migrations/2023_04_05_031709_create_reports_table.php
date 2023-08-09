@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('members_id');
             $table->unsignedBigInteger('postings_id');
-            $table->string('image_prove_name');
-            $table->string('image_prove_url');
+            $table->string('image_prove_name')->nullable();
+            $table->string('image_prove_url')->nullable();
             $table->string('text');
             $table->timestamps();
 
