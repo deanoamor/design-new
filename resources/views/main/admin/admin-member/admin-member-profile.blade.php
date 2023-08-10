@@ -62,7 +62,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="card mt-3" style="flex-direction: row; padding: 20px;">
-                                    <img src="{{ asset($member->image_url) }}" class="card-img-top rounded-circle align-self-start" alt="..." style="width: 10rem;">
+                                    <img src="{{ asset($member->image_url) }}" class="card-img-top rounded-circle align-self-start" alt="..." style="width: 150px; height:150px">
                                     <div class="card-body">
                                         <div class="text-section">
                                             <div class="username">

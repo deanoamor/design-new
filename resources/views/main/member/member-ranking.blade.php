@@ -79,7 +79,7 @@
 
                     <div class="card mb-3">
                         <div class="card-body">
-                            <h5 class="text-start">Total Downloads</h5>
+                            <h5 class="text-start">Total Purchase</h5>
 
                             @if($postingDownload->isNotEmpty())
 
@@ -94,7 +94,7 @@
                                         </a>
                                         <h5 class="ms-3">{{ $downloadList->title}}</h5>
                                     </div>
-                                    <p class="my-auto">{{ $downloadList->download}} Downloads</p>
+                                    <p class="my-auto">{{ $downloadList->download}} Purchase</p>
                                 </div>
                             </div>
                             <!-- end card 1 -->

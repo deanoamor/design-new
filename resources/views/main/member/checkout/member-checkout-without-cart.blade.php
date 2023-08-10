@@ -40,11 +40,11 @@
 
                         <dl class="row" style="margin-top: 24px;">
                             <dd class="col-sm-3" style="position: text-start;">{{$posting->title}}</dd>
-                            <dt class="col-sm-9">RP {{$posting->price}}</dt>
+                            <dt class="col-sm-9">RP {{$posting->formattedPrice}}</dt>
 
                             <dl class="row" style="margin-top: 10px;">
                                 <dd class="col-sm-3">Total Payment</dd>
-                                <dt class="col-sm-9">Rp {{$posting->price}}</dt>
+                                <dt class="col-sm-9">Rp {{$posting->formattedPrice}}</dt>
                                 <form action="{{ route('member.checkout.without-cart.create')}}" method="post">
                                     {{csrf_field()}}
                                     <input class="form-control" type="hidden" name="id" value="{{ $posting->id}}">
@@ -69,7 +69,7 @@
                                 <div class="col">
                                     <h6>{{$posting->title}}</h6>
                                     <p style="color: gray;">{{$posting->type}}</p>
-                                    <p>RP {{$posting->price}}</p>
+                                    <p>RP {{$posting->formattedPrice}}</p>
                                 </div>
                             </div>
                         </div>
