@@ -39,6 +39,9 @@
                         <div class="mt-4">
                             <img src="{{ asset($admin->image_url) }}" class="card-img-top" alt="..." style="width: 10rem;">
                             <input class="form-control form-control-lg" name="image_url" type="file">
+                            @error('image_url')
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
                             <p>Curent image : {{ $admin->image_name}}</p>
                         </div>
 

@@ -41,6 +41,9 @@
                             <div class="mt-4">
                                 <label for="formFileLg" class="form-label">Design</label>
                                 <input class="form-control form-control-lg" name="image_url" type="file">
+                                @error('image_url')
+                                <span class="text-danger">{{$message}}</span>
+                                @enderror
                                 <p>Curent design : {{ $posting->image_name}}</p>
                                 <img src="{{ asset($posting->image_url) }}" class="card-img-top" alt="..." style="width: 10rem;">
                             </div>
@@ -48,6 +51,9 @@
                             <div class="mt-4">
                                 <label for="formFileLg" class="form-label">FIle</label>
                                 <input class="form-control form-control-lg" name="file_url" type="file">
+                                @error('file_url')
+                                <span class="text-danger">{{$message}}</span>
+                                @enderror
                                 <p>Curent file : {{ $posting->file_name}}</p>
                                 <img src="{{ asset($posting->file_url) }}" class="card-img-top" alt="..." style="width: 10rem;">
                             </div>
