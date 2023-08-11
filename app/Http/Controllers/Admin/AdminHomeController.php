@@ -26,7 +26,7 @@ class AdminHomeController extends Controller
 
         $report = Report::with('Posting')->with(['Member' => function ($query) {
             $query->with('User');
-        }])->get();
+        }])->orderBy('created_at', 'DESC')->get();
 
         return view('main/admin/admin-home', compact('memberCount', 'postingCount', 'transactionCount', 'admin', 'report'));
     }

@@ -49,6 +49,7 @@
             </div>
 
             <div class="row mt-5 mx-1" style="border-radius: 6px; border-style: solid; border-width: 2px; border-color: #E0E0E0;">
+                <h5>Report</h5>
                 <table class="table">
                     <thead class="table-light">
                         <tr>
