@@ -40,17 +40,20 @@
                     <div class="card mt-3" style="padding: 10px;">
                         <div class="row">
                             <div class="col">
-                                <img src="{{ asset($transaction->Copy_posting->image_url) }}" class="card-img-top" alt="..." style="width:150px;height:150px;">
+                                <div class="d-flex me-5">
+                                    <div class="col">
+                                        <img src="{{ asset($transaction->Copy_posting->image_url) }}" class="card-img-top" alt="..." style="width:150px;height:150px;">
+                                    </div>
+                                    <div class="col">
+                                        <h6>{{$transaction->Copy_posting->title}}</h6>
+                                        <p style="color: gray;">{{$transaction->created_at}}</p>
+                                        <p>Rp {{$transaction->formattedTotal}}</p>
+                                        <span class="badge text-bg-success">{{$transaction->status}}</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col">
-                                <h6>{{$transaction->Copy_posting->title}}</h6>
-                                <p style="color: gray;">{{$transaction->created_at}}</p>
-                                <p>Rp {{$transaction->formattedTotal}}</p>
-                                <span class="badge text-bg-success">{{$transaction->status}}</span>
 
-                            </div>
-
-                            <div class="col">
+                            <div class="col text-end me-5">
                                 <a href="{{ route('member.transaction-history.download', ['id' => $transaction->Copy_posting->id]) }} " type="button" class="btn btn-link" style="color: blue;">Download</a>
                             </div>
                         </div>
