@@ -19,7 +19,9 @@ class MemberCartController extends Controller
             $query->with('Member');
         }])->orderBy('created_at', 'DESC')->get();
 
-        return view('main/member/member-cart', compact('cart', 'member'));
+        $cartSelect = Cart::where('members_id', $member->id)->where('is_select', 1);
+
+        return view('main/member/member-cart', compact('cart', 'member', 'cartSelect'));
     }
 
     public function addToCart($id)

@@ -37,19 +37,23 @@
                     @foreach($cart as $cartDesign)
 
                     <div class="card mt-3" style="padding: 10px;">
-                        <div class="row">
+                        <div class="row ">
                             <div class="col">
-                                <a href="{{ route('member.detail-design', ['id' =>$cartDesign->Posting->id]) }}">
-                                    <img src="{{ asset($cartDesign->Posting->image_url) }}" class="card-img-top" alt="..." style="width:150px;height:150px;">
-                                </a>
-                            </div>
-                            <div class="col">
-                                <h5>{{$cartDesign->Posting->title}} ({{$cartDesign->Posting->id}})</h5>
-                                <p>Design by {{$cartDesign->Posting->Member->username}}</p>
-                                <h5 style="margin-top: 12px;">Rp {{$cartDesign->Posting->formattedPrice}}</h5>
+                                <div class="d-flex me-5">
+                                    <div>
+                                        <a href="{{ route('member.detail-design', ['id' =>$cartDesign->Posting->id]) }}">
+                                            <img src="{{ asset($cartDesign->Posting->image_url) }}" class="card-img-top" alt="..." style="width:150px;height:150px;">
+                                        </a>
+                                    </div>
+                                    <div class="my-auto ms-4">
+                                        <h5>{{$cartDesign->Posting->title}} ({{$cartDesign->Posting->id}})</h5>
+                                        <p>Design by {{$cartDesign->Posting->Member->username}}</p>
+                                        <h5 style="margin-top: 12px;">Rp {{$cartDesign->Posting->formattedPrice}}</h5>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="col">
+                            <div class="col my-auto text-end me-5">
                                 <form action="{{ route('member.cart.set-select')}}" method="post">
                                     {{csrf_field()}}
                                     <input class="form-check-input" type="hidden" type="checkbox" name="id" value="{{$cartDesign->id}}">
@@ -71,7 +75,10 @@
                     </div>
 
                     @endforeach
+
+                    @if ($cartSelect->exists())
                     <a href="{{ route('member.checkout.with-cart')}}" style="margin-top: 32px;" class="btn btn-primary" role="button" type="button">Buy Now</a>
+                    @endif
 
                     @else
                     <div class="col-12 mt-4">
