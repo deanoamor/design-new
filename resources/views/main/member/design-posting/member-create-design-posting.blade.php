@@ -41,7 +41,7 @@
                         <div class="row">
 
                             <div class="mt-4">
-                                <label for="formFileLg" class="form-label">Design</label>
+                                <label for="formFileLg" class="form-label">Design <strong>(PNG Only)</strong></label>
                                 <input class="form-control form-control-lg" name="image_url" type="file" required>
                                 @error('image_url')
                                 <span class="text-danger">{{$message}}</span>
@@ -49,7 +49,7 @@
                             </div>
 
                             <div class="mt-4">
-                                <label for="formFileLg" class="form-label">FIle</label>
+                                <label for="formFileLg" class="form-label">FIle <strong>(SVG Only)</strong></label>
                                 <input class="form-control form-control-lg" name="file_url" type="file" required>
                                 @error('file_url')
                                 <span class="text-danger">{{$message}}</span>

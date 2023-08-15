@@ -39,7 +39,7 @@
                         <input class="form-control" type="hidden" name="id" value="{{$posting->id}}">
                         <div class="row">
                             <div class="mt-4">
-                                <label for="formFileLg" class="form-label">Design</label>
+                                <label for="formFileLg" class="form-label">Design <strong>(PNG Only)</strong></label>
                                 <input class="form-control form-control-lg" name="image_url" type="file">
                                 @error('image_url')
                                 <span class="text-danger">{{$message}}</span>
@@ -49,7 +49,7 @@
                             </div>
 
                             <div class="mt-4">
-                                <label for="formFileLg" class="form-label">FIle</label>
+                                <label for="formFileLg" class="form-label">FIle <strong>(SVG Only)</strong></label>
                                 <input class="form-control form-control-lg" name="file_url" type="file">
                                 @error('file_url')
                                 <span class="text-danger">{{$message}}</span>
