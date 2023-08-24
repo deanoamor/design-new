@@ -44,14 +44,14 @@
             <div>
 
                 <!-- row 2.2 -->
-                <div class="row" style="margin-top: 20px">
+                <div class="d-flex flex-wrap justify-content-start" style="margin-top: 20px">
 
                     @if($posting->isNotEmpty())
 
                     @foreach($posting as $postingSearch)
 
                     <!-- col 1 -->
-                    <div class="col">
+                    <div class="p-2 mx-2">
                         <!-- card 1 -->
                         <div class="card" style="width: 18rem; border: none;">
                             <a href="{{ route('member.detail-design', ['id' => $postingSearch->id]) }}">
