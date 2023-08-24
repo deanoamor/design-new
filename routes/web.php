@@ -12,9 +12,11 @@ use App\Http\Controllers\Member\MemberProfileController;
 use App\Http\Controllers\Member\MemberRankingController;
 use App\Http\Controllers\Member\MemberCheckoutController;
 use App\Http\Controllers\Member\MemberPortfolioController;
+use App\Http\Controllers\Member\MemberWebDesignController;
 use App\Http\Controllers\Admin\AdminDetailDesignController;
 use App\Http\Controllers\Admin\AdminMemberProfileController;
 use App\Http\Controllers\Member\MemberDetailDesignController;
+use App\Http\Controllers\Member\MemberIllustrationController;
 use App\Http\Controllers\Admin\AdminMemberPortfolioController;
 use App\Http\Controllers\Admin\AdminUploadedHistoryController;
 use App\Http\Controllers\Member\MemberDesignPostingController;
@@ -37,6 +39,12 @@ use App\Http\Controllers\Admin\AdminMemberTransactionHistoryController;
 Route::get('/', [MemberHomeController::class, 'getViewHome'])->name('member.home');
 Route::get('/home', [MemberHomeController::class, 'getViewHome'])->name('member.home');
 Route::get('/home/search', [MemberHomeController::class, 'searchDesignHome'])->name('member.home.search');
+
+Route::get('/home/illustration', [MemberIllustrationController::class, 'getViewIllustration'])->name('member.home.illustration');
+Route::get('/home/illustration/search', [MemberIllustrationController::class, 'searchDesignIllustration'])->name('member.home.illustration.search');
+
+Route::get('/home/web-design', [MemberWebDesignController::class, 'getViewWebDesign'])->name('member.home.web-design');
+Route::get('/home/web-design/search', [MemberWebDesignController::class, 'searchDesignWebDesign'])->name('member.home.web-design.search');
 
 Route::get('/ranking', [MemberRankingController::class, 'getViewRanking'])->name('member.ranking');
 
