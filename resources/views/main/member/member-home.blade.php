@@ -45,7 +45,7 @@
             <div>
                 <!-- row 1.1 -->
                 <div class="row" style="margin-top: 50px">
-                    <h6>Illustration</h6>
+                    <h6>Illustration <a href="{{ route('member.home.illustration')}}">View All</a></h6>
                     <p>Give your designs a personal touch</p>
                 </div>
                 <!-- end row 1.1 -->
