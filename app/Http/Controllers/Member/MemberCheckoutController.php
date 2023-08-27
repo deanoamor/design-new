@@ -91,7 +91,7 @@ class MemberCheckoutController extends Controller
                 'copy_postings_id' => $copyPosting->id,
                 'design_members_id' => $posting->Member->id,
                 'real_postings_id' => $posting->id,
-                'status' => 'Berhasil',
+                'status' => 'Success',
                 'total' => $posting->price,
                 'admin_fee' => $adminFee
             ]);
@@ -241,7 +241,7 @@ class MemberCheckoutController extends Controller
                     'copy_postings_id' => $copyPosting->id,
                     'design_members_id' => $cart[$i]->Posting->Member->id,
                     'real_postings_id' => $cart[$i]->Posting->id,
-                    'status' => 'Berhasil',
+                    'status' => 'Success',
                     'total' => $cart[$i]->Posting->price,
                     'admin_fee' => $adminFee
                 ]);

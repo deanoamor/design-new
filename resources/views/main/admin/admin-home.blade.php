@@ -70,8 +70,8 @@
                             <td>{{$reportMember->Member->User->email}}</td>
                             <td>{{$reportMember->created_at}}</td>
                             <td class="text-center">
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#reportModalAdmin{{$reportMember->id}}" class="btn btn-primary">See Report</button>
-                                <a type="button" onclick="return confirm('sure?');" href="{{ route('admin.home.report.delete', ['id' => $reportMember->id]) }}" class="btn btn-danger">Make Done</a>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#reportModalAdmin{{$reportMember->id}}" class="btn btn-primary">View Report</button>
+                                <a type="button" onclick="return confirm('sure?');" href="{{ route('admin.home.report.delete', ['id' => $reportMember->id]) }}" class="btn btn-danger">Remove</a>
                             </td>
                         </tr>
                         @include('main.admin.modal.admin-modal-report')

@@ -64,7 +64,7 @@
                             <td><span class="badge text-bg-danger">{{$memberList->status}}</span></td>
                             @endif
                             <td class="text-center">
-                                <a type="button" href="{{ route('admin.member.profile', ['id' => $memberList->id]) }}" class="btn btn-primary">See Detail</a>
+                                <a type="button" href="{{ route('admin.member.profile', ['id' => $memberList->id]) }}" class="btn btn-primary">View Detail</a>
                                 @if ($memberList->status == 'Active')
                                 <a type="button" class="btn btn-danger" href="{{ route('admin.member.set-status', ['id' => $memberList->id]) }}" onclick="return confirm('sure?');">Disable</a>
                                 @else
