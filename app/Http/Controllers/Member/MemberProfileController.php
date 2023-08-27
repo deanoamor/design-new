@@ -25,6 +25,29 @@ class MemberProfileController extends Controller
         $member = Member::where('id', $memberId)->first();
         $user = User::where('id', Auth::user()->id)->first();
 
+        $email = User::where('email', $request->email)->first();
+
+        //validation
+        $request->validate([
+            'email' => 'email:rfc,dns',
+        ]);
+
+        if ($request->no_hp) {
+            $request->validate([
+                'no_hp' => 'numeric',
+            ]);
+        }
+
+        if ($user->email != $request->email) {
+            if ($email) {
+                //send alert success
+                Alert::error('Email cant be the same', 'There is a user who has the same email as your new email');
+
+                //return back to profile
+                return redirect()->route('member.profile');
+            }
+        }
+
         //image
         if (empty($request->file('image_url'))) {
             $imageName = $member->image_name;
@@ -77,6 +100,11 @@ class MemberProfileController extends Controller
 
         //get wallet from form
         $wallet = $request->wallet;
+
+        //validation
+        $request->validate([
+            'wallet' => 'numeric'
+        ]);
 
         //calculated exisitng wallet with new wallet
         $walletAccu = $member->wallet + $wallet;

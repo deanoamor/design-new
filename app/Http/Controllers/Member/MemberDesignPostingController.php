@@ -28,8 +28,14 @@ class MemberDesignPostingController extends Controller
         //validation
         $request->validate([
             'image_url' => 'required|mimes:png|max:10024',
-            'file_url' => 'required|mimes:svg|max:10024'
+            'file_url' => 'required|mimes:svg|max:10024',
         ]);
+
+        if ($request->is_free == 0) {
+            $request->validate([
+                'price' => 'required|numeric'
+            ]);
+        }
 
         //image
         $image = $request->file('image_url');
@@ -95,16 +101,23 @@ class MemberDesignPostingController extends Controller
         $postingId = $request->id;
         $posting = posting::where('id', $postingId)->first();
 
+        //validation
+        $request->validate([
+            'file_url' => 'mimes:svg|max:10024',
+            'image_url' => 'mimes:png|max:10024',
+        ]);
+
+        if ($request->is_free == 0) {
+            $request->validate([
+                'price' => 'required|numeric'
+            ]);
+        }
+
         //image
         if (empty($request->file('image_url'))) {
             $imageName = $posting->image_name;
             $imageUrl = $posting->image_url;
         } else {
-
-            //validation
-            $request->validate([
-                'image_url' => 'required|mimes:png|max:10024',
-            ]);
 
             Storage::delete('public/design/' . $posting->image_name);
 
@@ -119,16 +132,10 @@ class MemberDesignPostingController extends Controller
         }
 
         //file
-        //image
         if (empty($request->file('file_url'))) {
             $fileName = $posting->file_name;
             $fileUrl = $posting->file_url;
         } else {
-
-            //validation
-            $request->validate([
-                'file_url' => 'required|mimes:svg|max:10024'
-            ]);
 
             Storage::delete('public/file/' . $posting->file_name);
 
