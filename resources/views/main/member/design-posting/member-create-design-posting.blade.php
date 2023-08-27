@@ -41,7 +41,7 @@
                         <div class="row">
 
                             <div class="mt-4">
-                                <label for="formFileLg" class="form-label">Design <strong>(PNG Only)</strong></label>
+                                <label for="formFileLg" class="form-label">Design <strong>(PNG Only | MAX 10mb)</strong></label>
                                 <input class="form-control form-control-lg" name="image_url" type="file" required>
                                 @error('image_url')
                                 <span class="text-danger">{{$message}}</span>
@@ -49,7 +49,7 @@
                             </div>
 
                             <div class="mt-4">
-                                <label for="formFileLg" class="form-label">FIle <strong>(SVG Only)</strong></label>
+                                <label for="formFileLg" class="form-label">FIle <strong>(SVG Only | MAX 10mb)</strong></label>
                                 <input class="form-control form-control-lg" name="file_url" type="file" required>
                                 @error('file_url')
                                 <span class="text-danger">{{$message}}</span>
@@ -103,6 +103,9 @@
                                 <div class="mb-2" style="margin-top: 32px;">
                                     <label for="exampleFormControlInput1" class="form-label">Pricing per Pack <strong>(automatically 0 if this design is free)</strong></label>
                                     <input type="text" class="form-control" name="price" placeholder="e.g: Rp10.000">
+                                    @error('price')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
                                 </div>
 
                             </div>

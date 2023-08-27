@@ -28,6 +28,7 @@
                         <div class="mt-4">
                             <img src="{{ asset($member->image_url) }}" class="card-img-top" alt="..." style="width: 10rem;">
                             <input class="form-control form-control-lg" name="image_url" type="file">
+                            <strong>(PNG Only | MAX 10mb)</strong>
                             @error('image_url')
                             <span class="text-danger">{{$message}}</span>
                             @enderror
@@ -47,11 +48,17 @@
                         <h6 style="margin-top: 32px;">Email</h6>
                         <div class="">
                             <input type="text" class="form-control" value="{{ $member->User->email}}" name="email">
+                            @error('email')
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
 
                         <h6 style="margin-top: 32px;"></h6>Phone</h6>
                         <div class="">
                             <input type="text" class="form-control" value="{{ $member->no_hp}}" name="no_hp">
+                            @error('no_hp')
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
 
                         <div class="d-grid gap-2" style="margin-top: 32px;">
@@ -73,7 +80,10 @@
                         <input class="form-control" type="hidden" name="id" value="{{$member->id}}">
                         <div class="mb-3" style="margin-top: 32px;">
                             <label>Top Up</label>
-                            <input type="text" class="form-control" name="wallet" placeholder="Input Amount">
+                            <input type="text" class="form-control" name="wallet" placeholder="Input Amount" required>
+                            @error('wallet')
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
 
                         <div class="d-grid gap-2" style="margin-top: 32px;">

@@ -43,7 +43,7 @@
                     <div class="col">
                         <div class="card mb-3">
                             <div class="card-body" style="padding: 20px;">
-                                <h5 class="text-start">{{ $posting->title}} ({{ $posting->id}})</h5>
+                                <h5 class="text-start">{{ $posting->title}}</h5>
                                 <h6 class="text-start" style="margin-top: 20px;">Designer</h6>
                                 <div style="justify-content: space-between; display:flex;">
                                     <div>
@@ -74,7 +74,6 @@
                                     {{$posting->like}}<span class="ms-1"></span>
                                     <i class="fa-solid fa-message"></i>{{$posting->feedback}} <span class="ms-1"></span>
                                     <i class="fa-solid fa-download"></i>{{$posting->download}} <span class="ms-1"></span>
-                                    <i class="fa-solid fa-share"></i>123 <span class="ms-1"></span>
                                 </p>
 
                                 <div class="d-grid gap-2" style="margin-top: 75px;">
@@ -120,7 +119,7 @@
                                         <p class="text-start" style="margin-top: 20px;">
                                             <span class="form-floating">
                                                 <div class="form-floating">
-                                                    <textarea class="form-control" name="text" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                                    <textarea class="form-control" name="text" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required></textarea>
                                                     <label for="floatingTextarea2">Give a polite feedback here..</label>
                                                 </div>
                                             </span>

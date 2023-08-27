@@ -30,7 +30,7 @@
                 <!-- search -->
                 <div class="row mt-4 justify-content-center">
                     <form class="d-flex mt-4" action="{{ route('member.home.search') }}" method="GET">
-                        <input type="text" class="form-control" name="search" placeholder="Search Design Asset" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                        <input type="text" class="form-control" name="search" placeholder="Search Design Asset" aria-label="Recipient's username" aria-describedby="button-addon2" required />
                         <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
                             Search
                         </button>
@@ -104,7 +104,7 @@
 
                 <!-- row 2.1 -->
                 <div class="row" style="margin-top: 50px">
-                    <h6>Web Design</h6>
+                    <h6>Web Design <a href="{{ route('member.home.web-design')}}">View All</a></h6>
                     <p>Bring depth to your designs</p>
                 </div>
                 <!-- end row 2.1 -->

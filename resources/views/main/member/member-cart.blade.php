@@ -46,7 +46,7 @@
                                         </a>
                                     </div>
                                     <div class="my-auto ms-4">
-                                        <h5>{{$cartDesign->Posting->title}} ({{$cartDesign->Posting->id}})</h5>
+                                        <h5>{{$cartDesign->Posting->title}} </h5>
                                         <p>Design by {{$cartDesign->Posting->Member->username}}</p>
                                         <h5 style="margin-top: 12px;">Rp {{$cartDesign->Posting->formattedPrice}}</h5>
                                     </div>
