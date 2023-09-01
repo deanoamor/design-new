@@ -91,6 +91,7 @@ Route::middleware('auth', 'is-member')->group(function () {
     //transaction history page==
     Route::get('/transaction-history', [MemberTransactionHistoryController::class, 'getViewTransactionHistory'])->name('member.transaction-history');
     Route::get('/transaction-history/download/{id}', [MemberTransactionHistoryController::class, 'downloadFile'])->name('member.transaction-history.download');
+    Route::get('/transaction-history/pdf/{id}', [MemberTransactionHistoryController::class, 'Invoice'])->name('member.transaction-history.invoice');;
 });
 
 

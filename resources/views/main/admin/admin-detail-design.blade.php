@@ -50,7 +50,6 @@
                                     <i class="fa-solid fa-heart"></i> {{$posting->like}}<span class="ms-1"></span>
                                     <i class="fa-solid fa-message"></i>{{$posting->feedback}} <span class="ms-1"></span>
                                     <i class="fa-solid fa-download"></i>{{$posting->download}} <span class="ms-1"></span>
-                                    <i class="fa-solid fa-share"></i>123 <span class="ms-1"></span>
                                 </p>
                                 <form action="{{ route('admin.detail-design.design-posting.delete')}}" onclick="return confirm('sure?');" method="post">
                                     {{csrf_field()}}

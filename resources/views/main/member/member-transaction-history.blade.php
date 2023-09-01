@@ -54,7 +54,8 @@
                             </div>
 
                             <div class="col text-end me-5">
-                                <a href="{{ route('member.transaction-history.download', ['id' => $transaction->Copy_posting->id]) }} " type="button" class="btn btn-link" style="color: blue;">Download</a>
+                                <a href="{{ route('member.transaction-history.download', ['id' => $transaction->Copy_posting->id]) }} " type="button" class="btn btn-link" style="color: blue;">Download Design</a>
+                                <a href="{{ route('member.transaction-history.invoice', ['id' => $transaction->Copy_posting->id]) }} " type="button" class="btn btn-link" style="color: blue;">Download Invoice</a>
                             </div>
                         </div>
                     </div>
